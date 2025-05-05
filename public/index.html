@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pong</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+
+    .game-container {
+      position: relative;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+
+    .leaderboard-container {
+      max-height: 200px;
+      overflow-y: auto;
+      margin-top: 20px;
+      width: 600px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    th, td {
+      border: 1px solid #4a5568;
+    }
+  </style>
+</head>
+<body class="bg-gray-900">
+  <div class="game-container">
+    <h1 class="text-4xl font-bold text-white mb-4">Игра Pong</h1>
+    <canvas id="pongCanvas" width="600" height="400" class="bg-black border border-white"></canvas>
+    <p id="score" class="text-lg text-gray-300 mt-4">Игрок: 0 | Компьютер: 0</p>
+    <button id="startButton" class="mt-4 px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700">Старт</button>
+    <div class="leaderboard-container">
+      <h2 class="text-2xl font-bold text-white mb-2">Таблица лидеров</h2>
+      <table class="text-gray-300">
+        <thead>
+          <tr>
+            <th class="px-4 py-2">Игрок</th>
+            <th class="px-4 py-2">Счёт игрока</th>
+            <th class="px-4 py-2">Счёт компьютера</th>
+            <th class="px-4 py-2">Дата</th>
+          </tr>
+        </thead>
+        <tbody id="leaderboard"></tbody>
+      </table>
+    </div>
+  </div>
+  <script src="/game.js"></script>
+</body>
+</html>
