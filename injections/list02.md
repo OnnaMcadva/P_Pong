@@ -1,4 +1,3 @@
----
 
 ### 1. **SQL Injection: Параметризованные запросы / ORM**
 ```typescript
