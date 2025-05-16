@@ -26,6 +26,9 @@ class User {
 const user = await UserRepository.findOne({ where: { email } }); // Автоматическая защита
 ```
 
+![Screenshot from 2025-05-16 13-25-51](https://github.com/user-attachments/assets/c711110a-ee18-42e4-854b-683df49249c6)
+
+
 ---
 
 ### 2. **XSS: Экранирование HTML/JS, CSP заголовки**
