@@ -20,6 +20,17 @@ db.get(`SELECT * FROM users WHERE email = '${email}'`, (err, row) => {});
 // ✅ Параметризованный запрос
 db.get("SELECT * FROM users WHERE email = ?", [email], (err, row) => {});
 
+// ❌ Опасный запрос
+const result = await db.query(
+  `SELECT * FROM users WHERE email = '${email}' AND password = '${password}'`
+);
+
+// ✅ Параметризованный запрос
+const result = await db.query(
+  `SELECT * FROM users WHERE email = $1 AND password = $2`,
+  [email, password]
+);
+
 ```
 
 
