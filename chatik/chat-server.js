@@ -4,7 +4,7 @@ const WebSocket = require('ws');
 let count = 1;
 const clients = {}; // { id: { socket, ws }, ... }
 
-const TCP_PORT = 4242;
+const TCP_PORT = 4242; // пока так
 const WS_PORT = 3001;
 
 // ===== TCP SERVER =====
