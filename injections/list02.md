@@ -1,5 +1,14 @@
 
-### 1. **SQL Injection: Параметризованные запросы / ORM**
+### 1. **SQL Injection: Параметризованные запросы  (prepared statements)
+
+##### ✅ Используем Fastify, Node.js и нативный драйвер PostgreSQL (pg)
+
+##### ❌ Нельзя использовать ORM (TypeORM, Prisma)
+
+
+Обновить все .ts файлы, в которых есть SQL-запросы. Найти строки с db.query(...), db.get(...), db.execute(...), которые содержат вставку переменных внутрь строки ('SELECT ... WHERE name = ' + name) и переписать их на параметризованный синтаксис.
+
+
 ```typescript
 // Без ORM (нативный SQLite)
 import sqlite3 from 'sqlite3';
@@ -11,22 +20,7 @@ db.get(`SELECT * FROM users WHERE email = '${email}'`, (err, row) => {});
 // ✅ Параметризованный запрос
 db.get("SELECT * FROM users WHERE email = ?", [email], (err, row) => {});
 
-// С ORM (TypeORM)
-import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
-
-@Entity()
-class User {
-  @PrimaryGeneratedColumn()
-  id: number;
-
-  @Column()
-  email: string;
-}
-
-const user = await UserRepository.findOne({ where: { email } }); // Автоматическая защита
 ```
-
-![Screenshot from 2025-05-16 13-25-51](https://github.com/user-attachments/assets/c711110a-ee18-42e4-854b-683df49249c6)
 
 
 ---
