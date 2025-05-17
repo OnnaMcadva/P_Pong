@@ -72,7 +72,7 @@
 | Блок                  | Делает       | Язык               |
 |-----------------------|--------------|--------------------|
 | Frontend Client       | Главный :)   | TypeScript + Babylon.js |
-| Backend (API)         | Команда      | TypeScript + Fastify |
+| Backend (API)         | Главный :)   | TypeScript + Fastify |
 | Chat-сервер           | Анна         | JavaScript (можно оставить) |
 | Chat-клиент           | Анна         | JavaScript |
 | AI Opponent           | Анна         | TypeScript (лучше для единства) |
