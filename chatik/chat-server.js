@@ -125,4 +125,7 @@ wss.on('connection', (ws) => {
   tcp.on('error', () => ws.close());
 });
 
+//  If you have a backend or any other features, it is mandatory to enable an HTTPS
+// connection for all aspects (use wss instead of ws for example).
+
 // node chat-server.js 4242
