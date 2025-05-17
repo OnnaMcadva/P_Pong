@@ -35,9 +35,9 @@
 |   ws://         |       | - маршрутизация   |       |                    |
 | - отправка/приём|       | - обработка ID    |       |                    |
 |   сообщений     |       | Делает: Анна      |       | Делает: все        |
-| Делает: Анна    |       | Язык: JS (оставить|       |                    |
-| Язык: JS        |       | можно, но будет   |       |                    |
-+-----------------+       | встраиваться позже|       +--------------------+
+| Делает: Анна    |       | Язык:TypeScript   |       |                    |
+| Язык:TypeScript |       |                   |       |                    |
++-----------------+       |                   |       +--------------------+
                           +-------------------+
                                        |
                                        ▼
@@ -72,12 +72,12 @@
 | Блок                  | Делает       | Язык               |
 |-----------------------|--------------|--------------------|
 | Frontend Client       | Главный :)   | TypeScript + Babylon.js |
-| Backend (API)         | Главный :)   | TypeScript + Fastify |
-| Chat-сервер           | Анна         | JavaScript (можно оставить) |
-| Chat-клиент           | Анна         | JavaScript |
+| Backend (API)         | Главный :)   | TypeScript + Fastify    |
+| Chat-сервер           | Анна         | TypeScript              |
+| Chat-клиент           | Анна         | TypeScript              |
 | AI Opponent           | Анна         | TypeScript (лучше для единства) |
-| Database (SQLite)     | Команда      | SQL + Fastify |
-| Blockchain (Avalanche)| Команда      | Solidity + TS/JS |
+| Database (SQLite)     | Команда      | SQL + Fastify           |
+| Blockchain (Avalanche)| Команда      | Solidity + TS/JS        |
 
 ---
 
