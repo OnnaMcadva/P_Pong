@@ -40,6 +40,12 @@ const tcpServer = net.createServer((socket) => {
   socket.on('error', () => socket.destroy());
 });
 
+/**
+ * Экранирует специальные HTML-символы для предотвращения XSS-атак.
+ * 
+ * @param text - входная строка от пользователя
+ * @returns строка с экранированными HTML-символами
+ */
 function escapeHtml(text: string): string {
   return text.replace(/[&<>"']/g, (char) => {
     switch (char) {
@@ -53,6 +59,15 @@ function escapeHtml(text: string): string {
   });
 }
 
+/**
+ * Отправляет сообщение всем подключённым клиентам (TCP и WebSocket),
+ * кроме отправителя (если excludeSender = true).
+ * 
+ * @param senderSocket - сокет клиента, отправившего сообщение
+ * @param senderId - ID клиента
+ * @param message - сообщение, которое нужно разослать
+ * @param excludeSender - исключить ли отправителя из рассылки (по умолчанию false)
+ */
 function notifyOthers(senderSocket: Socket, senderId: number, message: string, excludeSender = false) {
   for (const key in clients) {
     const client = clients[key];
