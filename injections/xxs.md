@@ -1,3 +1,31 @@
+### 2. **XSS: Экранирование HTML/JS, CSP заголовки**
+```typescript
+// Fastify middleware для CSP
+import fastify from 'fastify';
+const app = fastify();
+
+app.addHook('onSend', (request, reply, payload, done) => {
+  reply.header(
+    "Content-Security-Policy",
+    "default-src 'self'; script-src 'self' 'unsafe-inline'"
+  );
+  done();
+});
+
+// Экранирование HTML (используем DOMPurify)
+import DOMPurify from 'dompurify';
+import { JSDOM } from 'jsdom';
+
+const { window } = new JSDOM('');
+const purify = DOMPurify(window);
+
+const cleanHTML = purify.sanitize(userInput); // Очистка перед выводом в шаблон
+```
+
+---
+
+
+
 # XSS 
 
 ## 1. Клиент (Frontend — TypeScript + Babylon.js + HTML UI)
