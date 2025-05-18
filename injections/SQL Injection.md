@@ -46,33 +46,6 @@ const result = await db.query(
 ![Screenshot from 2025-05-16 13-55-52](https://github.com/user-attachments/assets/6318b256-6525-438c-8359-b62c8dfe7d3e)
 
 
----
-
-### 2. **XSS: Экранирование HTML/JS, CSP заголовки**
-```typescript
-// Fastify middleware для CSP
-import fastify from 'fastify';
-const app = fastify();
-
-app.addHook('onSend', (request, reply, payload, done) => {
-  reply.header(
-    "Content-Security-Policy",
-    "default-src 'self'; script-src 'self' 'unsafe-inline'"
-  );
-  done();
-});
-
-// Экранирование HTML (используем DOMPurify)
-import DOMPurify from 'dompurify';
-import { JSDOM } from 'jsdom';
-
-const { window } = new JSDOM('');
-const purify = DOMPurify(window);
-
-const cleanHTML = purify.sanitize(userInput); // Очистка перед выводом в шаблон
-```
-
----
 
 ### 3. **CSRF: CSRF-токены, проверка Origin/Referer**
 ```typescript
