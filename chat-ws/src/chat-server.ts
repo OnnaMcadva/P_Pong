@@ -64,7 +64,7 @@ wss.on('connection', (ws: WebSocket) => {
 
           if (recipient === 'all') {
             for (const user of users.values()) {
-              if (!user.blocked.has(senderId)) {
+              if (user.id !== senderId && !user.blocked.has(senderId)) {
                 user.socket.send(
                   JSON.stringify({
                     type: 'message',
