@@ -22,20 +22,20 @@ BLINK       = "\033[5m"
 
 NAME = pong
 
-CXX = gcc
-CXXFLAGS = -Wall -Wextra -Werror -I.
+CC = gcc
+CFLAGS = -Wall -Wextra -Werror -I.
 LDFLAGS = -lncursesw
 
 SRCS = pong.c
-OBJS = $(SRCS:.cpp=.o)
+OBJS = $(SRCS:.c=.o)
 
 all: $(NAME)
 	@printf $(DEF_COLOR)
 	@printf $(BOLD)$(YELLOW)"	pong compiled!\n\n"
 	@printf $(BOLD)$(GREEN_BR)
-	@printf "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣀⣀⠀⠀⠀⠀\n"
-	@printf "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⣀⣤⣴⣶⡿⠿⠿⠿⠿⠿⠿⠿⢷\n"
-	@printf "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣤⣶⣿⡿⠛⠉⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\n"
+	@printf "⣾⡟⠀⢰⡿⠁⢠⣿⡏⠁⣰⣾⠟⠉⠉⠉⠛⣿⣶⠈⢻⣷⡀⠈⣿⣧⠈⣿⣧\n"
+	@printf "⣿⡇⠀⣿⡇⠀⣿⣿⠀⢸⣿⡇⢰⣿ A ⢸⣿⠀⢸⣿⡇⠀⣿⣿⠀⣿⣿\n"
+	@printf "⣿⡇⠀⢿⡇⠀⢻⣿⡀⠘⣿⣇⠘⠻⢷⣶⣶⠿⠛⣠⣾⡟⠀⣠⣿⡏⢠⣿⡏\n"
 	@printf "⠀⠀⠀⠀⠀⠀⠀⠀⢀⣴⣿⣿⡿⠋⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\n"
 	@printf "⠀⠀⠀⠀⠀⠀⢀⣾⣿⡿⠋⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\n"
 	@printf "⠀⠀⠀⠀⠀⣰⣿⣿⠏⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\n"
@@ -47,10 +47,10 @@ all: $(NAME)
 	@printf $(BOLD)$(CYAN)"	q (quit)\n"
 
 $(NAME): $(OBJS)
-	$(CXX) $(CXXFLAGS) -o $(NAME) $(OBJS) $(LDFLAGS)
+	$(CC) $(CFLAGS) -o $(NAME) $(OBJS) $(LDFLAGS)
 
-%.o: %.cpp
-	$(CXX) $(CXXFLAGS) -c $< -o $@
+%.o: %.c
+	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
 	rm -f $(OBJS)
